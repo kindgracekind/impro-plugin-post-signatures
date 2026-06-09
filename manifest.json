@@ -3,5 +3,5 @@
   "name": "Post Signatures",
   "version": "0.1.0",
   "author": "kindgracekind",
-  "description": "Append a configurable signature to the end of every post."
+  "description": "Add a custom signature to the end of every post."
 }
