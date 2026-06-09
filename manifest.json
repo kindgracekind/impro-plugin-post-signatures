@@ -1,7 +1,7 @@
 {
   "id": "post-signatures",
   "name": "Post Signatures",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "kindgracekind",
   "description": "Add a custom signature to the end of every post."
 }

@@ -592,7 +592,7 @@ var SignatureSettingTab = class extends PluginSettingTab {
         await this.plugin.saveData(this.plugin.settings);
       })
     );
-    new Setting(this.containerEl).setName("New line").setDesc("Put the signature on a new line. If off, it's appended with a space.").addToggle(
+    new Setting(this.containerEl).setName("New line").setDesc("Put the signature on a new line.").addToggle(
       (toggle) => toggle.setValue(this.plugin.settings.newLine).onChange(async (value) => {
         this.plugin.settings.newLine = value;
         await this.plugin.saveData(this.plugin.settings);
