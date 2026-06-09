@@ -1,4 +1,4 @@
-// ../../impro-plugin/main.js
+// node_modules/@impro.social/impro-plugin/main.js
 var SimpleUUID = class {
   constructor() {
     this._id = 0;
