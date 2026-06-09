@@ -28,7 +28,7 @@ class SignatureSettingTab extends PluginSettingTab {
 
     new Setting(this.containerEl)
       .setName("New line")
-      .setDesc("Put the signature on a new line. If off, it's appended with a space.")
+      .setDesc("Put the signature on a new line.")
       .addToggle((toggle) =>
         toggle
           .setValue(this.plugin.settings.newLine)
