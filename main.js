@@ -577,7 +577,8 @@ self.onmessage = async (event) => {
 // src/main.js
 var DEFAULT_SETTINGS = {
   signature: "",
-  applyToReplies: false
+  applyToReplies: false,
+  newLine: true
 };
 var SignatureSettingTab = class extends PluginSettingTab {
   constructor() {
@@ -588,6 +589,12 @@ var SignatureSettingTab = class extends PluginSettingTab {
     new Setting(this.containerEl).setName("Signature").setDesc("Appended to the end of every new post.").addTextArea(
       (textarea) => textarea.setPlaceholder("\u2014 sent from impro").setValue(this.plugin.settings.signature).onChange(async (value) => {
         this.plugin.settings.signature = value;
+        await this.plugin.saveData(this.plugin.settings);
+      })
+    );
+    new Setting(this.containerEl).setName("New line").setDesc("Put the signature on a new line. If off, it's appended with a space.").addToggle(
+      (toggle) => toggle.setValue(this.plugin.settings.newLine).onChange(async (value) => {
+        this.plugin.settings.newLine = value;
         await this.plugin.saveData(this.plugin.settings);
       })
     );
@@ -607,9 +614,8 @@ var SignaturePlugin = class extends Plugin {
     this.app.on("post-composer-open", (composer, context) => {
       if (!this.settings.signature) return;
       if (context?.kind === "reply" && !this.settings.applyToReplies) return;
-      composer.appendText(`
-
-${this.settings.signature}`);
+      const separator = this.settings.newLine ? "\n\n" : " ";
+      composer.appendText(`${separator}${this.settings.signature}`);
       composer.setCursor(0);
     });
   }
