@@ -1,0 +1,7 @@
+{
+  "id": "post-signatures",
+  "name": "Post Signatures",
+  "version": "0.1.0",
+  "author": "kindgracekind",
+  "description": "Append a configurable signature to the end of every post."
+}
